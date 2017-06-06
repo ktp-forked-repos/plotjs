@@ -206,7 +206,7 @@ function generate_choices () {
 
 // discuss current topic
 function discuss(agent, topic) {
-  var applies = current_topic != "" && current_speaker = "";
+  var applies = (current_topic != "" && current_speaker == "");
   var text = agent + ": Next quip about " + topic; // XXX
 
   function effects() {

@@ -89,39 +89,33 @@ function selectChoice(index) {
   render();
 }
 
+function cmdToAction(cmd) {
+  var {op, args} = cmd;
+
+  switch(op) {
+    case "take": {
+      return take(args[0], args[1]);
+    }
+    case "go": { 
+      return go(args[0], args[1]);
+    }
+    case "talk": {
+      return talk(args[0], args[1]);
+    }
+    default: return undefined;
+  }
+}
 
 // returns text to display upon applying cmd
 function applyOper(cmd) {
 
-  var {op, args} = cmd;
-  var displayText; // to return at the end
+  var displayText = "Action not defined!"; // to return at the end
 
-  var applies = false;
-  var effects = function() {};
-  var text = "Dummy text";
-
-  var action = {applies:applies, effects:effects, text:text};
-
-  switch(op) {
-    case "take": {
-      action = take(args[0], args[1]);
-      break;
-    }
-    case "go": { 
-      action = go(args[0], args[1]);
-      break;
-    }
-    case "talk": {
-      action = talk(args[0], args[1]);
-      break;
-    }
-
-  }
-  if(action.applies) { 
+  var action = cmdToAction(cmd);
+  
+  if(action != undefined && action.applies) { 
     action.effects();
     displayText = action.text;
-  } else {
-    displayText = "Action not possible!";
   }
   return displayText;
 }
@@ -170,6 +164,8 @@ function generate_choices () {
   return choices;
   
 }
+
+function begin() { render(); }
 
 // Operator specification
 
@@ -232,17 +228,6 @@ function talk(agent1, agent2) {
   return {applies:applies, effects:effects, text:""};
 
 }
-
-// marry
-// preconditions: X and Y in L
-//    *** both X and Y intend the action
-// effects: X and Y married
-// turns: 3
-
-// dance at wedding
-// preconditions: X and Y at L. Z and W married at L.
-// effects: X and Y danced
-// turns: 2
 
 // give
 // preconditions: X has A

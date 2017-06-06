@@ -2,23 +2,23 @@
 
 var scriptCorryn =
   [ {op: "take", args: ["Corryn", "dress"]},
-    {op: "go", args: ["Corryn", "WinonaHouse"]},
-    {op: "talk", args: ["Corryn", "Winona"]},
+    {op: "go", args: ["Corryn", "WinstonHouse"]},
+    {op: "talk", args: ["Corryn", "Winston"]},
     {op: "wear", args: ["Corryn", "dress"]},
     {op: "go", args: ["church"]},
     {op: "marry", args: ["Corryn", "Alexis"]},
     {op: "dance", args: ["Corryn", "Alexis"]},
-    {op: "dance", args: ["Corryn", "Winona"]}
+    {op: "dance", args: ["Corryn", "Winston"]}
   ]
 
-var scriptWinona =
-  [ {op: "talk", args: ["Corryn", "Winona"]},
-    {op: "give", args: ["Winona", "necklace", "Corryn"]},
+var scriptWinston =
+  [ {op: "talk", args: ["Corryn", "Winston"]},
+    {op: "give", args: ["Winston", "necklace", "Corryn"]},
     {op: "wear", args: ["Corryn", "necklace"]},
     {op: "wait"},
-    {op: "go", args: ["Winona", "Church"]},
+    {op: "go", args: ["Winston", "Church"]},
     {op: "marry", args: ["Corryn", "Alexis"]},
-    {op: "dance", args: ["Corryn", "Winona"]}
+    {op: "dance", args: ["Corryn", "Winston"]}
   ]
 
 var scriptAlexis =
@@ -30,20 +30,20 @@ var scriptAlexis =
   ]
 
 var locations = 
-  ["AlexisHouse", "WinonaHouse", "CorrynHouse",
+  ["AlexisHouse", "WinstonHouse", "CorrynHouse",
     "Church"]
 
 var characters =
-  ["Alexis", "Winona", "Corryn"]
+  ["Alexis", "Winston", "Corryn"]
 
 // State
 var location_of =
   { "Alexis": "AlexisHouse",
-    "Winona": "WinonaHouse",
+    "Winston": "WinstonHouse",
     "green_dress": "AlexisHouse",
     "Corryn": "CorrynHouse",
     "silver_dress": "CorrynHouse",
-    "necklace": "WinonaHouse",
+    "necklace": "WinstonHouse",
    // "officiant": "Church"
   }
 
